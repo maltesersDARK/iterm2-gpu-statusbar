@@ -47,6 +47,16 @@ The `GPU` label is intentionally not shown in the text. The static icon identifi
 
 The default collector does not require root privileges.
 
+## Tested With
+
+- MacBook Pro 14-inch, 2021
+- Apple M1 Pro, 14-core GPU
+- 16 GB unified memory
+- Built-in Liquid Retina XDR display, 3024 x 1964 Retina
+- macOS 26.4.1
+- iTerm2 3.6.10
+- Status bar layout: Stable Positioning, Size Multiple `1`, Priority `5`, Minimum Width `0`, Maximum Width `200`
+
 ## Install
 
 From the repo root:
