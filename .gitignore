@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.DS_Store
+*.log
+*.backup-*
+*.bak
+
+.cache/
+tmp/
+dist/
+build/
+
+# Local agent/runtime state. Do not publish these.
+.codex/
+.omx/
+
+# Runtime files produced by the collector if copied into the repo by mistake.
+gpu_usage.json
+collector.out.log
+collector.err.log
+
