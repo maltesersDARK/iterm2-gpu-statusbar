@@ -136,6 +136,12 @@ python3 scripts/gpu_collector.py --once --print --cache-path "$PWD/tmp/gpu_usage
 python3 scripts/iterm2_gpu_statusbar.py --dry-run --cache-path "$PWD/tmp/gpu_usage.json"
 ```
 
+## Troubleshooting
+
+If the status bar shows iTerm2's bug icon, first fully restart iTerm2 and
+check again. This usually means the iTerm2 Python API status provider or its
+local socket got stuck, not that the GPU collector or cache is broken.
+
 ## Update
 
 ```sh
