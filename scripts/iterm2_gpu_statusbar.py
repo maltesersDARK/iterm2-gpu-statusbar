@@ -10,6 +10,8 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
+import sys
 import time
 from pathlib import Path
 from typing import Any
@@ -36,6 +38,16 @@ GPU_ICON_2X_BASE64 = (
     "f10FNK6CqJ6zOR/+t0wVcOToFBnOJHs2wP7XZ0E7sw9Ep2GE0GYYjftGlKgC0GY5j6qjbBUw"
     "Gl3EIKXAt3YoJ1QdVf1Qx3+f7ecR2oxcPoAD5Nl/PfGbsFEAAAAASUVORK5CYII="
 )
+
+
+def cleanup_autolaunch_pycache() -> None:
+    """Remove Python bytecode caches that iTerm2 may try to run as scripts."""
+    script_path = Path(__file__).resolve()
+    if script_path.parent.name != "AutoLaunch":
+        return
+    pycache_path = script_path.parent / "__pycache__"
+    if pycache_path.is_dir():
+        shutil.rmtree(pycache_path, ignore_errors=True)
 
 
 def cache_path_from_env() -> Path:
@@ -177,8 +189,8 @@ def dry_run(argv: list[str] | None = None) -> int:
 
 
 def main() -> None:
-    import sys
-
+    sys.dont_write_bytecode = True
+    cleanup_autolaunch_pycache()
     if "--dry-run" in sys.argv:
         filtered = [arg for arg in sys.argv[1:] if arg != "--dry-run"]
         raise SystemExit(dry_run(filtered))

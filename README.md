@@ -142,6 +142,11 @@ If the status bar shows iTerm2's bug icon, first fully restart iTerm2 and
 check again. This usually means the iTerm2 Python API status provider or its
 local socket got stuck, not that the GPU collector or cache is broken.
 
+If iTerm2 shows `Cannot Run Script` for `__pycache__`, remove that directory
+from `~/Library/Application Support/iTerm2/Scripts/AutoLaunch/`. The status bar
+script also removes that cache on startup because iTerm2 may mistake it for an
+AutoLaunch script.
+
 ## Update
 
 ```sh
